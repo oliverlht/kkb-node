@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+
+// console.log('cli...123');
+const program = require('commander');
+const { init, refresh } = require('../lib/api');
+// console.log(program);
+
+program.version(require('../package').version);
+program
+    .command('init <name>')
+    .description('init project')
+    .action(init)
+
+program
+    .command('refresh')
+    .description('refresh router')
+    .action(refresh)
+
+// console.log(process.argv)
+program.parse(process.argv);
